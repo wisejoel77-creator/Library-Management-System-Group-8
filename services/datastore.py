@@ -1,16 +1,20 @@
 import json
 import os
 
+FILE_PATH = "data/library_data.json"
+
 class DataStore:
-    FILE_PATH = "DATA/library.json"
 
-    def load(self):
-        if not os.path.exists(self.FILE_PATH):
-            return {"users": [], "books": [], "loans": []}
+    @staticmethod
+    def load():
+        if not os.path.exists(FILE_PATH):
+            return {"members": [], "books": [], "loans": []}
 
-        with open(self.FILE_PATH, "r") as f:
+        with open(FILE_PATH, "r") as f:
             return json.load(f)
 
-    def save(self, data):
-        with open(self.FILE_PATH, "w") as f:
+    @staticmethod
+    def save(data):
+        os.makedirs("data", exist_ok=True)
+        with open(FILE_PATH, "w") as f:
             json.dump(data, f, indent=4)

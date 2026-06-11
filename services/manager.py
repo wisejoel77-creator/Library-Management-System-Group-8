@@ -1,61 +1,46 @@
+from models.member import Member
+from models.book import Book
+from models.loan import Loan
 from services.datastore import DataStore
 
 class LibraryManager:
     def __init__(self):
-        self.store = DataStore()
-        self.data = self.store.load()
+        data = DataStore.load()
 
-    def add_book(self, title, author):
-        book = {
-            "book_id": len(self.data["books"]) + 1,
-            "title": title,
-            "author": author,
-            "status": "available"
-        }
+        self.members = [Member.from_dict(m) for m in data["members"]]
+        self.books = [Book.from_dict(b) for b in data["books"]]
+        self.loans = [Loan.from_dict(l) for l in data["loans"]]
 
-        self.data["books"].append(book)
-        self.store.save(self.data)
-        return "Book added successfully"
+    def persist(self):
+        DataStore.save({
+            "members": [m.to_dict() for m in self.members],
+            "books": [b.to_dict() for b in self.books],
+            "loans": [l.to_dict() for l in self.loans],
+        })
 
-    def list_books(self):
-        return [
-            f"{b['book_id']} - {b['title']} by {b['author']} ({b['status']})"
-            for b in self.data["books"]
-        ]
+    # --- MEMBER ---
+    def add_member(self, name, email):
+        member = Member(name, email)
+        self.members.append(member)
+        self.persist()
+        return member
 
-    def borrow_book(self, book_id, user_id):
-        for book in self.data["books"]:
-            if book["book_id"] == book_id:
-                if book["status"] == "borrowed":
-                    return "Already borrowed"
+    # --- BOOK ---
+    def add_book(self, title, author, genre, member_id):
+        book = Book(title, author, genre, cataloged_by_id=member_id)
+        self.books.append(book)
+        self.persist()
+        return book
 
-                book["status"] = "borrowed"
-                break
-        else:
-            return "Book not found"
+    # --- LOAN ---
+    def create_loan(self, book_id, borrower_id):
+        loan = Loan(book_id, borrower_id)
+        self.loans.append(loan)
 
-        loan = {
-            "loan_id": len(self.data["loans"]) + 1,
-            "book_id": book_id,
-            "user_id": user_id,
-            "returned": False
-        }
+        for b in self.books:
+            if b.id == book_id:
+                b.status = "loaned"
+                b.loan_ids.append(loan.id)
 
-        self.data["loans"].append(loan)
-        self.store.save(self.data)
-        return "Book borrowed"
-
-    def return_book(self, book_id):
-        for loan in self.data["loans"]:
-            if loan["book_id"] == book_id and not loan["returned"]:
-                loan["returned"] = True
-                break
-        else:
-            return "Loan not found"
-
-        for book in self.data["books"]:
-            if book["book_id"] == book_id:
-                book["status"] = "available"
-
-        self.store.save(self.data)
-        return "Book returned"
+        self.persist()
+        return loan
