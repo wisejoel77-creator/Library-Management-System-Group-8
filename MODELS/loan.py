@@ -1,0 +1,43 @@
+class Loan:
+    loan_counter = 0
+
+    def __init__(self, book_id, borrower_id, due_date):
+        self.id = Loan.loan_counter
+        Loan.loan_counter += 1
+
+        self.book_id = book_id
+        self.borrower_id = borrower_id
+        self.due_date = due_date
+        self.returned = False
+    
+    def mark_as_returned(self):
+        self.returned = True
+    
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "book_id": self.book_id,
+            "borrower_id": self.borrower_id,
+            "due_date": self.due_date,
+            "returned": self.returned
+        }
+    @classmethod
+    def from_dict(cls, data):
+        loan = cls(
+            data["book_id"],
+            data["borrower_id"],
+            data["due_date"]
+        )
+        loan.id = data["id"]
+        loan.returned = data["returned"]
+
+        return loan
+    
+    def __str__(self):
+        return(
+            f"Loan #{self.id} | "
+            f"Book ID: {self.book_id} | "
+            f"Borrower ID: {self.borrower_id} | "
+            f"Due Date: {self.due_date} | "
+            f"Returned: {self.returned}"
+        )
