@@ -13,3 +13,13 @@ class Loan:
     
     def mark_as_returned(self):
         self.returned = True
+    
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "book_id": self.book_id,
+            "borrower_id": self.borrower_id,
+            "due_date": self.due_date,
+            "returned": self.returned
+        }
+    
