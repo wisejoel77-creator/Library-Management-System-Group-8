@@ -22,4 +22,14 @@ class Loan:
             "due_date": self.due_date,
             "returned": self.returned
         }
-    
+    @classmethod
+    def from_dict(cls, data):
+        loan = cls(
+            data["book_id"],
+            data["borrower_id"],
+            data["due_date"]
+        )
+        loan.id = data["id"]
+        loan.returned = data["returned"]
+
+        return loan
