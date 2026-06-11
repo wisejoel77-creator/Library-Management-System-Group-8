@@ -3,6 +3,7 @@ from models.book import Book
 from models.loan import Loan
 from services.datastore import DataStore
 
+
 class LibraryManager:
     def __init__(self):
         data = DataStore.load()
@@ -18,29 +19,20 @@ class LibraryManager:
             "loans": [l.to_dict() for l in self.loans],
         })
 
-    
-    def add_member(self, name, email):
-        member = Member(name, email)
+    def add_member(self, member_id, name, email, membership_type="standard"):
+        member = Member(member_id, name, email, membership_type)
         self.members.append(member)
         self.persist()
         return member
 
-    
     def add_book(self, book_id, title, author, genre, member_id):
         book = Book(book_id, title, author, genre, cataloged_by_id=member_id)
         self.books.append(book)
         self.persist()
         return book
 
-    
-    def create_loan(self, book_id, borrower_id):
-        loan = Loan(book_id, borrower_id)
+    def create_loan(self, loan_id, book_id, borrower_id):
+        loan = Loan(loan_id, book_id, borrower_id)
         self.loans.append(loan)
-
-        for b in self.books:
-            if b.id == book_id:
-                b.status = "loaned"
-                b.loan_ids.append(loan.id)
-
         self.persist()
         return loan

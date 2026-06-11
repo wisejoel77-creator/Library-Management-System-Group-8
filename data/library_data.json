@@ -1,5 +1,36 @@
 {
-    "members": [],
+    "members": [
+        {
+            "id": [
+                "09"
+            ],
+            "name": [
+                "precious"
+            ],
+            "email": "precioufaith@gmail.com",
+            "membership_type": "standard"
+        },
+        {
+            "id": [
+                "07"
+            ],
+            "name": [
+                "israel"
+            ],
+            "email": "israelphilemon@gamil.com",
+            "membership_type": "standard"
+        },
+        {
+            "id": [
+                "7"
+            ],
+            "name": [
+                "faith"
+            ],
+            "email": "faithprecious@gmail.com",
+            "membership_type": "standard"
+        }
+    ],
     "books": [
         {
             "id": [
@@ -17,7 +48,37 @@
             "status": "available",
             "cataloged_by_id": "3435",
             "loan_ids": []
+        },
+        {
+            "id": [
+                "04"
+            ],
+            "title": [
+                "doll house"
+            ],
+            "author": [
+                "kevin"
+            ],
+            "genre": [
+                "monster"
+            ],
+            "status": "available",
+            "cataloged_by_id": "yes",
+            "loan_ids": []
         }
     ],
-    "loans": []
+    "loans": [
+        {
+            "id": null,
+            "book_id": [
+                "7"
+            ],
+            "borrower_id": [
+                "7"
+            ],
+            "co_borrowers": "7",
+            "due_date": "2026-06-25 23:49:28.387141",
+            "returned": false
+        }
+    ]
 }
