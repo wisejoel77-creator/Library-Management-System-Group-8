@@ -10,4 +10,6 @@ class Loan:
         self.borrower_id = borrower_id
         self.due_date = due_date
         self.returned = False
-        
+    
+    def mark_as_returned(self):
+        self.returned = True
