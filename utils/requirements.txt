@@ -1,0 +1,4 @@
+#required packages to run the cli
+click
+rich
+pytest
