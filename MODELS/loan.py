@@ -33,3 +33,12 @@ class Loan:
         loan.returned = data["returned"]
 
         return loan
+    
+    def __str__(self):
+        return(
+            f"Loan #{self.id} | "
+            f"Book ID: {self.book_id} | "
+            f"Borrower ID: {self.borrower_id} | "
+            f"Due Date: {self.due_date} | "
+            f"Returned: {self.returned}"
+        )
