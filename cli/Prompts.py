@@ -18,8 +18,8 @@ def book_prompt():
     
 
 def loan_prompt():
-        loan_id = click.prompt("Loan ID"),
-        book_id = click.prompt("Book ID"),
+        loan_id = click.prompt("Loan ID")
+        book_id = click.prompt("Book ID")
         borrower_id = click.prompt("Borrower ID")
         return loan_id, book_id, borrower_id
     

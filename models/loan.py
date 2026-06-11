@@ -15,11 +15,11 @@ class Loan:
     @classmethod
     def from_dict(cls, data):
         loan = cls(
-            data["id"],
-            data["book_id"],
-            data["borrower_id"],
-            data.get("co_borrowers", []),
-            due_days=data.get("due_days", 14),
+           book_id =  data["book_id"],
+           borrower_id=data["borrower_id"],
+           co_borrowers=data.get("co_borrowers", []),
+           due_days=data.get("due_days", 14),
+           id=data["id"]
             
         )
         loan.due_date = data["due_date"]
