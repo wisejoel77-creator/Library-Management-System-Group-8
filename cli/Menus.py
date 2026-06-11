@@ -1,6 +1,40 @@
-import click
-from rich.console import Console
-from rich.panel import Panel
+try:
+    import click  # type: ignore
+    prompt = click.prompt
+    Choice = click.Choice
+except (ImportError, ModuleNotFoundError):
+    # Fallback if click is not installed: minimal prompt replacement
+    class Choice:
+        def __init__(self, choices):
+            self.choices = list(choices)
+
+    def prompt(text, type=None):
+        # If type is Choice, enforce selection
+        if isinstance(type, Choice):
+            choices = type.choices
+            while True:
+                val = input(f"{text} ({'/'.join(choices)}): ")
+                if val in choices:
+                    return val
+                print(f"Invalid choice. Choose one of: {', '.join(choices)}")
+        else:
+            return input(f"{text}: ")
+
+try:
+    from rich.console import Console  # type: ignore
+    from rich.panel import Panel  # type: ignore
+except (ImportError, ModuleNotFoundError):
+    # Fallback if rich is not installed
+    class Console:
+        def print(self, text, **kwargs):
+            print(text)
+    
+    class Panel:
+        def __init__(self, text, **kwargs):
+            self.text = text
+            
+        def __str__(self):
+            return self.text
 
 #LibMan handles data loading and saving
 from cli.Display import show_books, show_members, show_loans
@@ -26,9 +60,13 @@ def show_menu():
         console.print("0. Exit")
         console.print("7. Return a Book")
 
-        choice = click.prompt(
+        choice = prompt(
             "Choice",
+<<<<<<< HEAD
+            type=Choice(["0", "1", "2", "3", "4", "5", "6"])
+=======
             type=click.Choice(["0", "1", "2", "3", "4", "5", "6", "7"])
+>>>>>>> origin/main
         )
 
         if choice == "1":
