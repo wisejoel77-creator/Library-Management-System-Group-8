@@ -18,21 +18,21 @@ class LibraryManager:
             "loans": [l.to_dict() for l in self.loans],
         })
 
-    # --- MEMBER ---
+    
     def add_member(self, name, email):
         member = Member(name, email)
         self.members.append(member)
         self.persist()
         return member
 
-    # --- BOOK ---
-    def add_book(self, title, author, genre, member_id):
-        book = Book(title, author, genre, cataloged_by_id=member_id)
+    
+    def add_book(self, book_id, title, author, genre, member_id):
+        book = Book(book_id, title, author, genre, cataloged_by_id=member_id)
         self.books.append(book)
         self.persist()
         return book
 
-    # --- LOAN ---
+    
     def create_loan(self, book_id, borrower_id):
         loan = Loan(book_id, borrower_id)
         self.loans.append(loan)

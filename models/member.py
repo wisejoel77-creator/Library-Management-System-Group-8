@@ -1,8 +1,7 @@
-import uuid
 
 class Member:
-    def __init__(self, name, email, membership_type="standard", id=None):
-        self.id = id or str(uuid.uuid4())
+    def __init__(self, id, name, email, membership_type="standard"):
+        self.id = id
         self.name = name
         self.email = email
         self.membership_type = membership_type

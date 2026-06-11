@@ -1,5 +1,5 @@
 import pytest
-from MODELS.book import Book
+from models.book import Book
 
 #Test case that raises an error when author is empty
 def test_empty_author_raises_error():

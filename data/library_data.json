@@ -1,0 +1,23 @@
+{
+    "members": [],
+    "books": [
+        {
+            "id": [
+                "34526"
+            ],
+            "title": [
+                "Kazuo Ishiguro"
+            ],
+            "author": [
+                "Ghuanzou Firo"
+            ],
+            "genre": [
+                "Drama"
+            ],
+            "status": "available",
+            "cataloged_by_id": "3435",
+            "loan_ids": []
+        }
+    ],
+    "loans": []
+}
