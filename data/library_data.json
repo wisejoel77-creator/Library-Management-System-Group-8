@@ -2,12 +2,41 @@
     "members": [
         {
             "id": [
+<<<<<<< HEAD
                 "34562"
             ],
             "name": [
                 "Yassin Hassan"
             ],
             "email": "yassinhassan23@gmail.com",
+=======
+                "09"
+            ],
+            "name": [
+                "precious"
+            ],
+            "email": "precioufaith@gmail.com",
+            "membership_type": "standard"
+        },
+        {
+            "id": [
+                "07"
+            ],
+            "name": [
+                "israel"
+            ],
+            "email": "israelphilemon@gamil.com",
+            "membership_type": "standard"
+        },
+        {
+            "id": [
+                "7"
+            ],
+            "name": [
+                "faith"
+            ],
+            "email": "faithprecious@gmail.com",
+>>>>>>> b956cca (Fix library system errors and improve CLI stability)
             "membership_type": "standard"
         }
     ],
@@ -28,12 +57,30 @@
             "status": "available",
             "cataloged_by_id": "3435",
             "loan_ids": []
+        },
+        {
+            "id": [
+                "04"
+            ],
+            "title": [
+                "doll house"
+            ],
+            "author": [
+                "kevin"
+            ],
+            "genre": [
+                "monster"
+            ],
+            "status": "available",
+            "cataloged_by_id": "yes",
+            "loan_ids": []
         }
     ],
     "loans": [
         {
             "id": null,
             "book_id": [
+<<<<<<< HEAD
                 "23456"
             ],
             "borrower_id": [
@@ -41,6 +88,15 @@
             ],
             "co_borrowers": "3452",
             "due_date": "2026-06-25 22:36:28.865393",
+=======
+                "7"
+            ],
+            "borrower_id": [
+                "7"
+            ],
+            "co_borrowers": "7",
+            "due_date": "2026-06-25 23:49:28.387141",
+>>>>>>> b956cca (Fix library system errors and improve CLI stability)
             "returned": false
         }
     ]
