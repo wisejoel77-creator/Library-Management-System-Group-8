@@ -64,8 +64,8 @@ def show_menu():
           
         elif choice == "0":
                 console.print("Exiting...")
-        break #break loop and end program
-    else:
-            console.print("[red]Invalid choice. Please try again.[/red]")
+                break #break loop and end program
+
+               
 
 
