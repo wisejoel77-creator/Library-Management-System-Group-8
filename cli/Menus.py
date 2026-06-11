@@ -24,10 +24,11 @@ def show_menu():
         console.print("5. Add Book")
         console.print("6. Add Loan")
         console.print("0. Exit")
+        console.print("7. Return a Book")
 
         choice = click.prompt(
             "Choice",
-            type=click.Choice(["0", "1", "2", "3", "4", "5", "6"])
+            type=click.Choice(["0", "1", "2", "3", "4", "5", "6", "7"])
         )
 
         if choice == "1":
@@ -48,10 +49,23 @@ def show_menu():
             loan_id, book_id, borrower_id = loan_prompt()
             loan = manager.create_loan(loan_id, book_id, borrower_id)
             console.print(f"Loan created (ID: {loan.id})")
+        
+        elif choice == "7":
+            member_id = click.prompt("Member ID")
+            book_id = click.prompt("Book ID")
+            loan, status = manager.return_by_member_and_book(member_id, book_id)
+
+            if status == "success":
+               console.print("[green]✓ Loan marked as returned.[/green]")
+            elif status == "already_returned":
+               console.print("[yellow]This book was already returned.[/yellow]")
+            elif status == "not_found":
+               console.print("[red]No matching loan found. Double-check the IDs.[/red]")
+          
         elif choice == "0":
-            console.print("Exiting...")
-            break #break loop and end program
-        else:
+                console.print("Exiting...")
+        break #break loop and end program
+    else:
             console.print("[red]Invalid choice. Please try again.[/red]")
 
 

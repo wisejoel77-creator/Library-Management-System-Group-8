@@ -19,8 +19,8 @@ class LibraryManager:
         })
 
     
-    def add_member(self, name, email):
-        member = Member(name, email)
+    def add_member(self, member_id, name, email, membership_type="standard"):
+        member = Member(member_id, name, email, membership_type=membership_type)
         self.members.append(member)
         self.persist()
         return member
@@ -33,8 +33,8 @@ class LibraryManager:
         return book
 
     
-    def create_loan(self, book_id, borrower_id):
-        loan = Loan(book_id, borrower_id)
+    def create_loan(self, loan_id, book_id, borrower_id):
+        loan = Loan(loan_id, book_id, borrower_id)
         self.loans.append(loan)
 
         for b in self.books:
@@ -44,3 +44,17 @@ class LibraryManager:
 
         self.persist()
         return loan
+ 
+
+    def return_by_member_and_book(self, member_id, book_id):
+        for loan in self.loans:
+         if loan.borrower_id == member_id and loan.book_id == book_id:
+            if loan.returned:
+                return None, "already_returned"
+            loan.returned = True
+            for b in self.books:
+                if b.id == book_id:
+                    b.status = "available"
+            self.persist()
+            return loan, "success"
+        return None, "not_found"  

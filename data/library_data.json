@@ -1,5 +1,16 @@
 {
-    "members": [],
+    "members": [
+        {
+            "id": [
+                "34562"
+            ],
+            "name": [
+                "Yassin Hassan"
+            ],
+            "email": "yassinhassan23@gmail.com",
+            "membership_type": "standard"
+        }
+    ],
     "books": [
         {
             "id": [
@@ -19,5 +30,18 @@
             "loan_ids": []
         }
     ],
-    "loans": []
+    "loans": [
+        {
+            "id": null,
+            "book_id": [
+                "23456"
+            ],
+            "borrower_id": [
+                "3452"
+            ],
+            "co_borrowers": "3452",
+            "due_date": "2026-06-25 22:36:28.865393",
+            "returned": false
+        }
+    ]
 }
