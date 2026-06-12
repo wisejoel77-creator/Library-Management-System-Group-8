@@ -13,6 +13,7 @@ Start the interactive menu:
 ```bash
 python library-main.py menu
 ```
+From the menu choose between the seven options
 
 Or run one command at a time:
 

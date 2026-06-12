@@ -27,6 +27,8 @@ class LibraryManager:
         return member
 
     def add_book(self, book_id, title, author, genre, member_id):
+        if any(str(book.id) == str(book_id) for book in self.books):
+            raise ValueError(f"Book ID {book_id} already exists.")
         book = Book(book_id, title, author, genre, cataloged_by_id=member_id)
         self.books.append(book)
         self.persist()

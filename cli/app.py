@@ -37,23 +37,31 @@ def loans():
 
 @run_cli.command("add-member")
 def add_member():
-    member_id, name, email = member_prompt()
-    manager = LibraryManager()
-    member = manager.add_member(member_id, name, email)
-    console.print(f"Member added: {member.name} (ID: {member.id})")
+    try:
+        member_id, name, email = member_prompt()
+        manager = LibraryManager()
+        member = manager.add_member(member_id, name, email)
+        console.print(f"Member added: {member.name} (ID: {member.id})")
+    except ValueError as e:
+        console.print(f"Error adding member: {e}")
 
 
 @run_cli.command("add-book")
 def add_book():
-    book_id, title, author, genre, member_id = book_prompt()
-    manager = LibraryManager()
-    book = manager.add_book(book_id, title, author, genre, member_id)
-    console.print(f"Book added: {book.title} (ID: {book.id})")
-
+    try:
+        book_id, title, author, genre, member_id = book_prompt()
+        manager = LibraryManager()
+        book = manager.add_book(book_id, title, author, genre, member_id)
+        console.print(f"Book added: {book.title} (ID: {book.id})")
+    except ValueError as e:
+        console.print(f"Error adding book: {e}")
 
 @run_cli.command("add-loan")
 def add_loan():
-    loan_id, book_id, borrower_id = loan_prompt()
-    manager = LibraryManager()
-    loan = manager.create_loan(loan_id, book_id, borrower_id)
-    console.print(f"Loan created (ID: {loan.id})")
+    try:
+        loan_id, book_id, borrower_id = loan_prompt()
+        manager = LibraryManager()
+        loan = manager.create_loan(loan_id, book_id, borrower_id)
+        console.print(f"Loan created (ID: {loan.id})")
+    except ValueError as e:
+        console.print(f"Error creating loan: {e}")
