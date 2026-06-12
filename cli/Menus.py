@@ -23,8 +23,9 @@ def show_menu():
         console.print("4. Add Member")
         console.print("5. Add Book")
         console.print("6. Add Loan")
-        console.print("0. Exit")
         console.print("7. Return a Book")
+        console.print("0. Exit")
+     
 
         choice = click.prompt(
             "Choice",
@@ -64,8 +65,6 @@ def show_menu():
           
         elif choice == "0":
                 console.print("Exiting...")
-        break #break loop and end program
-    else:
-            console.print("[red]Invalid choice. Please try again.[/red]")
-
+                break #break loop and end program
+    
 
