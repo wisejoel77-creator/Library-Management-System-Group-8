@@ -47,54 +47,6 @@ def show_loans(loans):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 def show_books(books):
     print("\n--- BOOKS ---")
     for b in books:
