@@ -32,9 +32,12 @@ class LibraryManager:
         self.persist()
         return book
 
-    
     def create_loan(self, loan_id, book_id, borrower_id):
-        loan = Loan(loan_id, book_id, borrower_id)
+        loan = Loan(
+            id=loan_id,
+            book_id=book_id,
+            borrower_id=borrower_id
+    )
         self.loans.append(loan)
 
         for b in self.books:

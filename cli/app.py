@@ -13,7 +13,7 @@ def run_cli():
     parser = argparse.ArgumentParser(description="Library Management System")
     subparsers = parser.add_subparsers(dest="command")
 
-    # Register each command name (no logic here, just names)
+    # Register comand name
     subparsers.add_parser("menu")
     subparsers.add_parser("books")
     subparsers.add_parser("members")

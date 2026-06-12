@@ -1,92 +1,12 @@
 {
     "members": [
         {
-            "id": [
-                "34562"
-            ],
-            "name": [
-                "Yassin Hassan"
-            ],
-            "email": "yassinhassan23@gmail.com",
-            "membership_type": "standard"
-        },
-        {
-            "id": [
-                "1234"
-            ],
-            "name": [
-                "Yassin Hassan"
-            ],
-            "email": "yassinhassan34@gmail.com",
-            "membership_type": "standard"
-        },
-        {
-            "id": [
-                "2345"
-            ],
-            "name": [
-                "Joel Wise"
-            ],
-            "email": "joelwise23@gmail.com",
+            "id": "1234",
+            "name": "Kevin Ongaro",
+            "email": "ongaokevin16@gmail.com",
             "membership_type": "standard"
         }
     ],
-    "books": [
-        {
-            "id": [
-                "34526"
-            ],
-            "title": [
-                "Kazuo Ishiguro"
-            ],
-            "author": [
-                "Ghuanzou Firo"
-            ],
-            "genre": [
-                "Drama"
-            ],
-            "status": "available",
-            "cataloged_by_id": "3435",
-            "loan_ids": []
-        },
-        {
-            "id": [
-                "1234"
-            ],
-            "title": [
-                "Kazuo Ishiguro"
-            ],
-            "author": [
-                "HenricK Isben"
-            ],
-            "genre": [
-                "Inspirational"
-            ],
-            "status": "available",
-            "cataloged_by_id": "5678",
-            "loan_ids": []
-        }
-    ],
-    "loans": [
-        {
-            "id": null,
-            "book_id": [
-                "23456"
-            ],
-            "borrower_id": [
-                "3452"
-            ],
-            "co_borrowers": "3452",
-            "due_date": "2026-06-25 22:36:28.865393",
-            "returned": false
-        },
-        {
-            "id": null,
-            "book_id": "01234",
-            "borrower_id": "1234",
-            "co_borrowers": "5678",
-            "due_date": "2026-06-26 09:28:59.637607",
-            "returned": false
-        }
-    ]
+    "books": [],
+    "loans": []
 }

@@ -66,5 +66,5 @@ def show_menu():
         elif choice == "0":
                 console.print("Exiting...")
                 break #break loop and end program
-    
+
 
