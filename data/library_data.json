@@ -1,1 +1,12 @@
-{"members": [], "books": [], "loans": []}
+{
+    "members": [
+        {
+            "id": "1234",
+            "name": "Kevin Ongaro",
+            "email": "ongaokevin16@gmail.com",
+            "membership_type": "standard"
+        }
+    ],
+    "books": [],
+    "loans": []
+}
